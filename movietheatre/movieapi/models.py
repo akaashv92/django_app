@@ -8,14 +8,21 @@ class Movie(models.Model):
     def __str__(self):
         return "{} - {}".format(self.name, self.time)
 
+    def get_name(self):
+        return self.name
+
 
 class Room(models.Model):
-    room_number = models.IntegerField(max_length=16, help_text="Room Number")
-    size = models.IntegerField(max_length=16, help_text="Seating Capacity")
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, help_text="Movie screened in the room")
+    room_number = models.IntegerField(help_text="Room Number")
+    size = models.IntegerField(help_text="Seating Capacity")
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE,
+                              help_text="Movie screened in the room")
 
     def __str__(self):
         return "Room:{} - Movie:{}".format(self.room_number, self.movie)
+
+    def get_size(self):
+        return self.size
 
 
 class Ticket(models.Model):

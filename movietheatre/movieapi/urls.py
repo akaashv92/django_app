@@ -5,6 +5,9 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'movies', views.MovieViewSet)
+router.register(r'rooms', views.RoomViewSet)
+router.register(r'setuptickets', views.TicketViewSet)
+router.register(r'buyticket', views.BuyTicketViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

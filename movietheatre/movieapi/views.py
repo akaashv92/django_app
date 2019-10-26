@@ -1,8 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import MovieSerializer, RoomSerializer, TicketSerializer
-from .models import Movie, Room, Ticket
+from .models import Movie, Room, Ticket, BuyTicket
+from .serializers import MovieSerializer, RoomSerializer, TicketSerializer, BuyTicketSerializer
 
 
 class MovieViewSet(viewsets.ModelViewSet):
@@ -18,3 +16,8 @@ class RoomViewSet(viewsets.ModelViewSet):
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+
+
+class BuyTicketViewSet(viewsets.ModelViewSet):
+    queryset = BuyTicket.objects.all()
+    serializer_class = BuyTicketSerializer

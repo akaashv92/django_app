@@ -1,4 +1,4 @@
-# DJANGO Rest_Framework
+# DJANGO Rest Framework
 
 This is a Movie Theatre API.
 

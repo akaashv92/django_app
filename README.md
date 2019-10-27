@@ -13,9 +13,13 @@ A Customer can:
 3) Buy a ticket
 
 Packages used Django rest framework
+
 Db used SQLite
+
 Runs on http://localhost:8000/
+
 Admin page http://localhost:8000/admin
+
 username: movieAdmin
 password: movietheatre
 

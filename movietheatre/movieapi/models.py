@@ -24,6 +24,16 @@ class Room(models.Model):
     def get_size(self):
         return self.size
 
+    def get_room(self):
+        return self.room_number
+
+    def tickets_sold(self):
+        tickets = BuyTicket.objects.filter(room=self)
+        sold = 0
+        for ticket in tickets:
+            sold += ticket.quantity
+        return sold
+
 
 class Ticket(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE, help_text="Tickets to Sell")
@@ -31,10 +41,14 @@ class Ticket(models.Model):
     def __str__(self):
         return "{}".format(self.room)
 
+    def get_room(self):
+        return self.room.get_room()
+
 
 class BuyTicket(models.Model):
     date_purchased = models.DateField(auto_now_add=True)
     movie_ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, help_text="Ticket to buy")
+    quantity = models.IntegerField(default=1)
 
     def __str__(self):
         return "{} - {}".format(self.date_purchased, self.movie_ticket)

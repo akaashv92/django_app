@@ -24,4 +24,4 @@ class TicketSerializer(serializers.HyperlinkedModelSerializer):
 class BuyTicketSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = BuyTicket
-        fields = ['date_purchased', 'movie_ticket']
+        fields = ['date_purchased', 'movie_ticket', 'quantity']

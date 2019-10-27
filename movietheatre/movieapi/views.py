@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+
 from .models import Movie, Room, Ticket, BuyTicket
 from .serializers import MovieSerializer, RoomSerializer, TicketSerializer, BuyTicketSerializer
 
@@ -21,3 +22,4 @@ class TicketViewSet(viewsets.ModelViewSet):
 class BuyTicketViewSet(viewsets.ModelViewSet):
     queryset = BuyTicket.objects.all()
     serializer_class = BuyTicketSerializer
+

@@ -151,7 +151,6 @@ class JSONTestCase(TestCase):
         joker = Movie.objects.get(name='Joker')
         Room.objects.create(room_number=1, size=10, movie=joker)
         response = self.client.get('/rooms/1/')
-        print(str(response.content, encoding='utf8'))
         self.assertEquals(response.status_code, 200)
         self.assertJSONEqual(str(response.content, encoding='utf8'),
                              {"room_number": 1, "size": 10, "movie": "http://testserver/movies/1/"})

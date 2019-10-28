@@ -25,4 +25,11 @@ password: movietheatre
 
 You can add/delete movies, rooms and tickets from the API and from the admin page.
 
+Make sure to have the database tables created before running the tests
+
+`python manage.py makemigrations`
+
+`python manage.py test`
+
+
 
